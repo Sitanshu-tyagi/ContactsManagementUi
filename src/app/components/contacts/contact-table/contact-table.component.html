@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contact of contacts; let i = index">
+            <td>{{ getContactId(i) }}</td>
+            <td>{{ contact.firstName }}</td>
+            <td>{{ contact.lastName }}</td>
+            <td>{{ contact.email }}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" (click)="onEdit(contact)">Edit</button>
+                <button class="btn btn-danger btn-sm ms-2" (click)="onDelete(contact.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="d-flex align-items-start">
+       <img class="headerImage" [src]="imagePath" alt=""/>
+       <h4>Contacts App</h4>
+  </div>
+    <button class="btn btn-success" (click)="onAddNewContact()">New</button>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <!-- Contact Table Component -->
+  <app-contact-table
+    *ngIf="!loading"
+    [contacts]="contacts"
+    (editContact)="onEditContact($event)"
+    (deleteContact)="onDeleteContact($event)">
+  </app-contact-table>
+
+  <!-- Contact Form Modal Component -->
+  <app-contact-form
+    *ngIf="showFormModal"
+    [contact]="selectedContact"
+    (formSubmit)="onContactFormSubmit($event)"
+    (close)="closeModal()">
+  </app-contact-form>
+</div>
