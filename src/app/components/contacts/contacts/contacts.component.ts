@@ -15,10 +15,6 @@ export class ContactsComponent implements OnInit {
   errorMessage: string = ''; // To store error messages
   imagePath: string = 'assets/images/appIcon.png';
 
-  currentPage = 1;
-  pageSize = 5;
-  totalPages = 0;
-
   constructor(private contactService: ContactService) {}
 
   ngOnInit(): void {
@@ -88,14 +84,5 @@ export class ContactsComponent implements OnInit {
 
   closeModal(): void {
     this.showFormModal = false;
-  }
-
-  // Pagination Methods
-  goToPage(page: number): void {
-    if (page < 1 || page > this.totalPages) {
-      return;
-    }
-    this.currentPage = page;
-    this.loadContacts(); // Load contacts for the new page
   }
 }

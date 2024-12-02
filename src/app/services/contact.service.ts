@@ -11,9 +11,7 @@ export class ContactService {
 
   constructor(private http: HttpClient) {}
 
-  // Fetch contacts with pagination
   getContacts(): Observable<any> {
-    //const params = { page: page.toString(), pageSize: pageSize.toString() };
     return this.http.get<{ contacts: Contact[]}>(this.apiUrl);
   }
 
